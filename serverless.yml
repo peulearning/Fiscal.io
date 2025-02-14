@@ -1,0 +1,14 @@
+# serverless.yml
+# ---
+srvice: fastapi-number-text
+  provider:
+   name: aws
+   runtime: python3.9
+   region: us-east-1
+ functions:
+   app:
+     handler: main.handler
+     events:
+       - http:
+           path: convert/{number}
+           method: get
